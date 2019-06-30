@@ -33,7 +33,7 @@
  var playerGear;
  var plusIcon;
  var minusIcon;
- var name = "Name";
+ var name = "name";
  var level = 1;
  var gear = 0;
  var munchkins = [];
