@@ -1,0 +1,240 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+ body {
+     background-color: #bd9f82;
+     
+
+   
+ }
+
+ #test {
+     position: absolute;
+     
+ }
+
+
+ body p {
+     
+    text-transform: uppercase;
+    color: hsl(35, 61%, 14%);
+ }
+
+ #headerAddText {
+     position: absolute;
+     left:50px;
+     top:-50px;
+ }
+
+
+.container h1 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: 12px;
+    letter-spacing: -1.6px;
+    word-spacing: 1px;
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: italic;
+    font-variant: normal;
+    text-transform: uppercase;
+    color: rgb(41, 10, 10);
+    text-shadow:
+      1.2px 0px 1px #ffffff,
+      1px 1px 1px rgb(255, 255, 255), 0 0 1px rgb(255, 255, 255), 0 0 25px rgb(255, 255, 255);
+}
+
+
+
+
+.addIcon {
+    background-color: transparent;
+    outline:none;
+    border-radius:50px;
+    margin-left:15px;
+    border:none;
+
+}
+
+.headerText {
+position: relative;
+top:-15px;
+left:3px;
+font-size: 8px;
+}
+
+.createPlayerCard {
+    width: 200px;
+    height:200px;
+    margin-left:10%;
+    margin-top:100px;
+    display:none;
+    position: absolute;
+    border-radius: 50%;
+    text-align: center;
+    padding-top:25px;
+    z-index:1;
+}
+
+.createPlayerCard p {
+    font-size: 12px;
+
+}
+
+#munchkinNameInput{
+border: black;
+border:1px solid #574517;
+background-color: #d9c4b0;
+outline:none;
+margin-top:-10px;
+text-align: center;
+border-radius: 25px;
+width: 120px;
+left:40px;
+position: inherit;
+}
+
+#genderTitle {
+    position: inherit;
+    left:40px;
+   margin-top: 30px;
+   
+}
+
+
+
+@keyframes rotation {
+    from {
+      transform: rotate(45deg);
+    }
+    to {
+      transform: rotate(405deg);
+    }
+  
+  }
+
+  
+
+.outerCircle {
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+    border-bottom: 8px groove hsl(44, 74%, 20%);
+    border-top: 8px groove  hsl(44, 74%, 20%);
+    position: absolute;
+    top:0;
+    left:inherit;
+    width: inherit;
+    height: inherit;
+    border-radius: 50%;
+    transform: rotate(45deg);
+  }
+  
+
+
+
+
+.addIcon:active {
+   transform: scale(1.1);
+   filter: invert(100%);
+   transition-property: all;
+   transition-duration: 0.1s;
+   
+}
+
+#numberOfPlayers {
+position: relative;
+top:-28px;
+left:40px;
+}
+
+
+
+ .container {
+     width:80%;
+     height:90%;
+     margin-left:10%;
+     margin-right:10%;
+     padding-top:2px;
+     float:left;
+     background-color: #d9c4b0;
+ }
+
+ .plusIcon, .minusIcon {
+     max-width: 20px;
+     max-height: 20px; 
+    position: relative;
+    top:-25px;
+ }
+
+ .plusIcon {
+    left: -15px;
+ }
+
+ .minusIcon {
+    left: 15px;
+    
+ }
+
+ .border {
+    border: 5px groove  hsl(44, 74%, 20%);
+    border-radius: 20px;
+    
+ }
+
+ .header {
+     width:auto;
+     height: 30px;
+ }
+
+ .header img {
+     margin-right:3px;
+     margin-top:3px;
+     max-width: 20px;
+     max-height:20px;
+     float:right;
+ }
+
+ .player {
+     margin:5px;
+     min-width: 110px;
+     width:40%;
+     max-width: 200px;
+     height:200px;
+     float:left;
+     text-align: center;
+    
+ }
+
+ .card {
+     border: 1px solid black;
+     border-radius: 5px;
+     background-color: #f5ede6;
+     margin-left:10px;
+ }
+
+ .cardTitle {
+     border-bottom: 1px solid black;
+  
+ }
+
+ .playerBody {
+     text-align: center;
+ }
+
+ 
