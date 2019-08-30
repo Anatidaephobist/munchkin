@@ -24,8 +24,10 @@
  var nameOfPlayer;
  var numberOfPlayers = 0;
  var playerCount;
+ var addButton;
  var playerBody;
  var playerLevelTitle;
+ var rings;
  var playerGearTitle;
  var playerLevelContainer;
  var playerGearContainer;
@@ -37,31 +39,61 @@
  var level = 1;
  var gear = 0;
  var munchkins = [];
+ var maleIcon;
+ var femaleIcon;
 
  document.getElementById("addPlayer").addEventListener("click", createPlayer);
-
+ document.getElementById("createMunchkin").addEventListener("click", munchkin);
  document.getElementById("test").addEventListener("click", display);
-
+ document.getElementById("maleIcon").addEventListener("click", setActive);
+ document.getElementById("femaleIcon").addEventListener("click", setActive);
 
 function createPlayer() {
+  
+   
   blur = document.getElementById("blur");
+  addButton = document.getElementById("addPlayer");
   createPlayerCard = document.getElementById("createPlayerCard");
 
-  blur.style = "filter: blur(2px);";
+
+  blur.style = "filter: blur(3px);";
   createPlayerCard.style = "display:block;";
-  var rings = document.getElementById('outerCircle');
+  rings = document.getElementById('outerCircle');
   rings.style = "animation: rotation 9s infinite linear;";
   
 }
 
+function setActive() {
+    maleIcon = document.getElementById("maleIcon");
+    femaleIcon = document.getElementById("femaleIcon");
+
+    if(this.id == "maleIcon") {
+        maleIcon.style = "filter: invert(100%);";
+        femaleIcon.style = "ilter: invert(0%);"
+}
+    if(this.id == "femaleIcon") {
+        femaleIcon.style = "filter: invert(100%);";
+        maleIcon.style = "filter: invert(0%);";
+}
+
+}
+
 
  function display() {
-     console.log(munchkins);
+   console.log(munchkins);
  }
 
 
-function hide() {
-    playerWrapper = document.getElementById("playerWrapper")
+function munchkin() {
+    playerWrapper = document.getElementById("playerWrapper");
+    createPlayerCard = document.getElementById("createPlayerCard");
+    blur = document.getElementById("blur");
+    addButton = document.getElementById("addPlayer");
+
+    blur.style = "filter: blur(0px);";
+    createPlayerCard.style = "display:none;";
+    rings.style = "animation: ;";
+
 
     playerCard = document.createElement("div");
     playerCard.className = "player card";
@@ -108,9 +140,6 @@ function hide() {
     playerGearTitle.appendChild(t);
     playerBody.appendChild(playerGearTitle);
     
-
-    
-
     playerGearContainer = document.createElement("div");
     playerGearContainer.className = "playerGear";
     playerGearTitle.appendChild(playerGearContainer);
@@ -121,6 +150,9 @@ function hide() {
     playerGear.appendChild(t);
     playerGearContainer.appendChild(playerGear);
     
+    
+
+
     /** 
 
     plusIcon = document.createElement("img");
@@ -137,6 +169,7 @@ function hide() {
     numberOfPlayers++;
     playerCount = document.getElementById("numberOfPlayers");
     playerCount.innerHTML = numberOfPlayers;
+
 
     if(numberOfPlayers > 9) {
        playerCount.style = "top:15px;"

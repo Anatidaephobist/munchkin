@@ -19,14 +19,27 @@
 
  body {
      background-color: #bd9f82;
-     
-
-   
  }
 
  #test {
      position: absolute;
+     display:none;
      
+ }
+
+ .container h1 {
+
+    font-family: "Comic Sans MS", cursive, sans-serif;
+font-size: 12px;
+letter-spacing: -1.2px;
+word-spacing: 4px;
+color: #000000;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: uppercase;
+
  }
 
 
@@ -42,23 +55,6 @@
      top:-50px;
  }
 
-
-.container h1 {
-    font-family: "Comic Sans MS", cursive, sans-serif;
-    font-size: 12px;
-    letter-spacing: -1.6px;
-    word-spacing: 1px;
-    color: #000000;
-    font-weight: 700;
-    text-decoration: none;
-    font-style: italic;
-    font-variant: normal;
-    text-transform: uppercase;
-    color: rgb(41, 10, 10);
-    text-shadow:
-      1.2px 0px 1px #ffffff,
-      1px 1px 1px rgb(255, 255, 255), 0 0 1px rgb(255, 255, 255), 0 0 25px rgb(255, 255, 255);
-}
 
 
 
@@ -80,43 +76,90 @@ font-size: 8px;
 }
 
 .createPlayerCard {
-    width: 200px;
-    height:200px;
-    margin-left:10%;
-    margin-top:100px;
+    width: 100px;
+    height:100px;
+    margin-left:15%;
+    margin-right:15%;
+    margin-top:120px;
     display:none;
     position: absolute;
     border-radius: 50%;
     text-align: center;
     padding-top:25px;
-    z-index:1;
+    z-index:2;
+}
+
+#createMunchkin {
+    position: inherit;
+    font-size: 6px;
+    top:88px;
+    left:32px;
+    outline:none;
+    text-transform: uppercase;
+    border:1px solid #574517;
+    border-radius:50px;
+    background-color:rgb(240, 217, 196);
+    max-height: 10px;
+    max-width:auto;
+    color:black;
+}
+
+
+
+
+
+.createPlayerCard img {
+   position: inherit;
+   top:70px;
+}
+
+#maleIcon {
+    max-width: 15px;
+    max-height: 15px;
+    left:22.5px;
+}
+
+#femaleIcon {
+    max-width: 12.5x;
+    max-height: 12.5px;
+    top:72px;
+    left:67.5px;
 }
 
 .createPlayerCard p {
     font-size: 12px;
-
 }
 
-#munchkinNameInput{
-border: black;
+#munchkinNameInput {
 border:1px solid #574517;
 background-color: #d9c4b0;
 outline:none;
-margin-top:-10px;
+margin-top:6px;
+font-size: 8px;
+height:10px;
 text-align: center;
 border-radius: 25px;
-width: 120px;
-left:40px;
+width: 60px;
+top:31.5px;
+left:20px;
 position: inherit;
 }
 
+
+
 #genderTitle {
+    font-size: 8px;
     position: inherit;
-    left:40px;
-   margin-top: 30px;
-   
+    left:10px;
+    top: 48px;
 }
 
+#nameTitle {
+    font-size: 8px;
+    margin-top:1px;
+    position: inherit;
+    left:15px;
+}
 
 
 @keyframes rotation {
@@ -130,12 +173,14 @@ position: inherit;
   }
 
   
+  
 
 .outerCircle {
     border-right: 1px solid black;
     border-left: 1px solid black;
-    border-bottom: 8px groove hsl(44, 74%, 20%);
-    border-top: 8px groove  hsl(44, 74%, 20%);
+    border-bottom: 4px groove hsl(44, 74%, 20%);
+    border-top: 4px groove  hsl(44, 74%, 20%);
+    background-color:#bd9f82;
     position: absolute;
     top:0;
     left:inherit;
@@ -143,6 +188,7 @@ position: inherit;
     height: inherit;
     border-radius: 50%;
     transform: rotate(45deg);
+
   }
   
 
@@ -166,10 +212,8 @@ left:40px;
 
 
  .container {
-     width:80%;
+     width:50vw;
      height:90%;
-     margin-left:10%;
-     margin-right:10%;
      padding-top:2px;
      float:left;
      background-color: #d9c4B0;
