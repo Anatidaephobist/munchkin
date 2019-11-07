@@ -139,17 +139,16 @@ function munchkin() {
     
     playerTitle.className = "cardTitle";
     playerCard.appendChild(playerTitle);
-    t = document.createTextNode(id);
-    playerTitle.appendChild(t);
-    
 
     nameOfPlayer = document.createElement("h1");
    
     var t = document.createTextNode(name);
     var g = document.createElement("IMG");
     if(maleIconIsActive) {
+        g.setAttribute("id","male");
     g.src = "./img/maleIcon.png";
     } else if(femaleIconIsActive) {
+        g.setAttribute("id","female");
         g.src = "./img/femaleIcon.png";
     }
 
@@ -231,7 +230,9 @@ function munchkin() {
     removeLevelIcon = document.createElement("button");
     lm = document.createTextNode("-1");
     removeLevelIcon.className = "removeLevelIcon";
-    removeLevelIcon.setAttribute("id", "removeLevel");
+    removeLevelIcon.onclick = () => {
+        decreaseValue(levelTotalId, strengthTotalId);
+    }
     removeLevelIcon.appendChild(lm);
 
     
@@ -289,12 +290,36 @@ function munchkin() {
 }
 
 function increaseValue(id, strId) {
-   let value = document.getElementById(id).innerText++;
-    updateStrength(strId);
+   let element = document.getElementById(id);
+   let value = element.innerText++;
+   console.log(value);
+   if(value < 1) {
+    return;
+   } else {
+    increaseStrength(strId);
+   }
+   
+    
 }
 
-function updateStrength(strId) {
+function decreaseValue(id, strId) {
+    let element = document.getElementById(id);
+    element.innerText--;
+    if(element.innerText >= 1) {
+    decreaseStrength(strId);
+    } else {
+        element.innerText = 1;
+        return;
+    }
+    
+}
+
+function increaseStrength(strId) {
    document.getElementById(strId).innerText++;
+}
+
+function decreaseStrength(strId) {
+    document.getElementById(strId).innerText--;
 }
 
 function randomID() {

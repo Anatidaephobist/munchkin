@@ -39,7 +39,6 @@ text-transform: uppercase;
 
 
  body p {
-     
     text-transform: uppercase;
     color: hsl(35, 61%, 14%);
  }
@@ -53,15 +52,33 @@ text-transform: uppercase;
 
 
 
-
 .addIcon {
     background-color: transparent;
-    outline:none;
-    border-radius:50px;
-    margin-left:15px;
-    border:none;
-    width:45px;
+    outline: none;
+    border-radius: 50px;
+    border: none;
+    width: 110px;
+    font-size: 8px;
+    height: 30px;
+}
 
+#addIconPng {
+    margin-right: 3px;
+    margin-top: 3px;
+    max-width: 20px;
+    max-height: 20px;
+    float: left;
+    margin-left: 40px;
+    margin-right: 28px;
+}
+
+#optionsPng {
+    margin-right: 3px;
+    margin-top: 3px;
+    max-width: 20px;
+    max-height: 20px;
+    float: right;
+    margin-left: 2px;
 }
 
 .headerText {
@@ -170,8 +187,7 @@ font-size: 8px;
 
 
 .cardTitle img {
-    max-width: 12px;
-    min-width: 12px;
+   
     height: auto;
 }
 
@@ -194,6 +210,17 @@ font-size: 8px;
     top: 56vw;
     left: 45vw;
 }
+
+#male {
+    max-width: 12px;
+    min-width: 12px;
+}
+
+#female {
+    max-width: 7px;
+    min-width: 7px;
+}
+
 
 .createPlayerCard p {
     font-size: 12px;
@@ -271,23 +298,24 @@ font-size: 8px;
 }
 
 #numberOfPlayers {
-position: relative;
-top:-28px;
-left:12px;
+    position: relative;
+    top: -35px;
+    left: 2px;
 }
 
 
 
- .container {
-     text-align: center;
-     width:89vw;
-     height:90%;
-     padding-top:2px;
-     padding-left: 25px;
-     float:left;
-     margin-left:-5px;
-     background-color: #d9c4B0;
- }
+.container {
+    text-align: center;
+    width: 89vw;
+    height: 90%;
+    padding-top: 2px;
+    padding-bottom: 9px;
+    padding-left: 25px;
+    float: left;
+    margin-left: -5px;
+    background-color: #d9c4B0;
+}
 
  .plusIcon, .minusIcon {
      max-width: 20px;
@@ -316,13 +344,6 @@ left:12px;
      height: 30px;
  }
 
- .header img {
-     margin-right:3px;
-     margin-top:3px;
-     max-width: 20px;
-     max-height:20px;
-     float:right;
- }
 
  .player {
      margin:5px;
