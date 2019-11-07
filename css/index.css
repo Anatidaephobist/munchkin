@@ -289,7 +289,7 @@ font-size: 8px;
 
 
 
-.addIcon:active {
+.addIcon:active, .deleteButton:active {
    transform: scale(1.1);
    filter: invert(100%);
    transition-property: all;
@@ -303,7 +303,19 @@ font-size: 8px;
     left: 2px;
 }
 
-
+.deleteButton {
+    background-color: #362d2c;
+    border: 1px black solid;
+    border-radius: 50%;
+    color: white;
+    outline: none;
+    float: right;
+    margin-top: -7px;
+    margin-left: -22px;
+    margin-right: 1px;
+    transform: scale(0.6);
+    opacity: 0.6;
+}
 
 .container {
     text-align: center;

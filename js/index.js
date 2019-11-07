@@ -48,6 +48,7 @@
  var gear = 0;
  var id = 0;
  var gearId = 0;
+ var playerId = 0;
  var levelId = 0;
  var strengthId = 0;
  var strength = level+gear;
@@ -75,9 +76,7 @@ function createPlayer() {
   
 }
 
-function addMunchkinLevel() {
-this.level+=1;
-}
+
 
 function setActive() {
     maleIcon = document.getElementById("maleIcon");
@@ -133,6 +132,9 @@ function munchkin() {
 
     playerCard = document.createElement("div");
     playerCard.className = "player card";
+    let playerCardId = "playerCard"+playerId;
+    playerId++;
+    playerCard.setAttribute("id", playerCardId);
     playerWrapper.appendChild(playerCard);
    
    
@@ -140,7 +142,6 @@ function munchkin() {
     
     playerTitle.className = "cardTitle";
     playerCard.appendChild(playerTitle);
-
     nameOfPlayer = document.createElement("h1");
    
     var t = document.createTextNode(name);
@@ -156,6 +157,14 @@ function munchkin() {
     nameOfPlayer.appendChild(t);
     playerTitle.appendChild(nameOfPlayer);
     playerTitle.appendChild(g);
+
+    var deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "x";
+    deleteButton.onclick = () => {
+        deleteCard(playerCardId);
+    }
+    deleteButton.className = "deleteButton";
+    nameOfPlayer.appendChild(deleteButton);
     
     playerBody = document.createElement("div");
     playerBody.className = "playerBody";
@@ -318,8 +327,19 @@ function increaseLevelValue(id, strId) {
     winnerDinnerChickenDinner();
     return;
 }
-   
-    
+}
+
+function deleteCard(id) {
+    let element = document.getElementById(id);
+    element.remove();
+
+  numberOfPlayers--;
+    playerCount = document.getElementById("numberOfPlayers");
+    playerCount.innerHTML = numberOfPlayers;
+    if(playerCount.innerHTML == 0) {
+        playerCount.innerHTML = "";
+    }
+
 }
 
 function decreaseLevelValue(id, strId) {
