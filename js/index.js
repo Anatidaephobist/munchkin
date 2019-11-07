@@ -65,10 +65,27 @@
 
 
 function createPlayer() {
+
+    
  
   addButton = document.getElementById("addPlayer");
   createPlayerCard = document.getElementById("createPlayerCard");
+  let buttons = document.getElementsByClassName("cardButton");
+
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = true; 
+    }
   
+  var cancelButton = document.createElement("button");
+    cancelButton.innerHTML = "x";
+    cancelButton.onclick = () => {
+        hideCreatePlayer();
+    }
+    cancelButton.setAttribute("id", "cancelCreation");
+    createPlayerCard.appendChild(cancelButton);
+    
+  
+
   blur = document.getElementById("blur");
   blur.style = "filter: blur(3px);";
   createPlayerCard.style = "display:block;";
@@ -117,6 +134,8 @@ function munchkin() {
         alert("You need to have both name and gender");
         return;
     } else {
+    document.getElementById("cancelCreation").remove();
+    let buttons = document.getElementsByClassName("cardButton");
     document.getElementById("munchkinNameInput").value = "";
     document.getElementById("maleIcon").style = "filter: invert(0%)";
     document.getElementById("femaleIcon").style = "filter: invert(0%)";
@@ -124,9 +143,11 @@ function munchkin() {
     createPlayerCard = document.getElementById("createPlayerCard");
     
     addButton = document.getElementById("addPlayer");
-
     blur = document.getElementById("blur");
     blur.style = "filter: blur(0px);";
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false; 
+    }
     createPlayerCard.style = "display:none;";
     rings.style = "animation: ;";
 
@@ -287,19 +308,6 @@ function munchkin() {
     
 
 
-    /** 
-
-    plusIcon = document.createElement("img");
-    plusIcon.className = "plusIcon";
-    plusIcon.src = "./img/plusIcon.png";
-    playerLevelContainer.appendChild(plusIcon);
-
-    minusIcon = document.createElement("img");
-    minusIcon.className = "minusIcon";
-    minusIcon.src = "./img/minusIcon.png";
-    playerLevelContainer.appendChild(minusIcon);
-    
-*/
     numberOfPlayers++;
     playerCount = document.getElementById("numberOfPlayers");
     playerCount.innerHTML = numberOfPlayers;
@@ -314,6 +322,25 @@ function munchkin() {
     
 }
    
+}
+
+function hideCreatePlayer() {
+    let createPlayerCard = document.getElementById("createPlayerCard");
+    let buttons = document.getElementsByClassName("cardButton");
+    let maleIcon = document.getElementById("maleIcon");
+
+    let blur = document.getElementById("blur");
+    document.getElementById("cancelCreation").remove();
+    document.getElementById("munchkinNameInput").value = "";
+    createPlayerCard.style.display = "none";
+    blur.style = "";
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false; 
+    }
+    document.getElementById("maleIcon").style = "filter: invert(0%)";
+    document.getElementById("femaleIcon").style = "filter: invert(0%)";
+    this.maleIconIsActive = false;
+    this.femaleIconIsActive = false;
 }
 
 function increaseLevelValue(id, strId) {
@@ -338,8 +365,8 @@ function increaseLevelValue(id, strId) {
 function deleteCard(id) {
     let element = document.getElementById(id);
     document.getElementById("confirmBox").style.display = "none";
-    let buttons = document.getElementsByClassName("cardButton");
     let blur = document.getElementById("blur");
+    let buttons = document.getElementsByClassName("cardButton");
     blur.style = "";
     for (let i = 0; i < buttons.length; i++) {
         buttons[i].disabled = false; 
