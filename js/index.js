@@ -46,6 +46,9 @@
  var level = 1;
  var gear = 0;
  var id = 0;
+ var gearId = 0;
+ var levelId = 0;
+ var strengthId = 0;
  var strength = level+gear;
  var munchkins = [];
  var maleIcon;
@@ -172,8 +175,9 @@ function munchkin() {
     
     playerLevel = document.createElement("h2");
     plvl = document.createTextNode(level);
-    playerLevel.setAttribute("id", id);
-    
+    let levelTotalId = "levelTotal"+levelId;
+    levelId++;
+    playerLevel.setAttribute("id", levelTotalId);
     playerLevel.appendChild(plvl);
     playerLevelContainer.appendChild(playerLevel);
 
@@ -190,6 +194,9 @@ function munchkin() {
     
     playerGear = document.createElement("h2");
     t = document.createTextNode(gear);
+    let gearTotalId = "gearTotal"+gearId;
+    gearId++;
+    playerGear.setAttribute("id", gearTotalId);
     playerGear.appendChild(t);
 
     playerStrengthTitle = document.createElement("h1");
@@ -206,6 +213,9 @@ function munchkin() {
     
     playerStrength = document.createElement("h2");
     t = document.createTextNode(strength);
+    let strengthTotalId = "strengthTotal"+strengthId;
+    strengthId++;
+    playerStrength.setAttribute("id", strengthTotalId);
     playerStrength.appendChild(t);
     playerStrengthContainer.appendChild(playerStrength);
 
@@ -213,13 +223,8 @@ function munchkin() {
     var addLevelIcon = document.createElement("button");
     lp = document.createTextNode("+1");
     addLevelIcon.className = "addLevelIcon";
-    addLevelIcon.setAttribute("id", id++);
-    addLevelIcon.onclick = (event) => {
-        let playerLvlHtml = document.getElementById(event.target.id);
-        let playerLVL = playerLvlHtml.innerText;
-        playerLVL++;
-        playerLvlHtml.innerHTML = playerLVL;
-        
+    addLevelIcon.onclick = () => {
+        increaseValue(levelTotalId, strengthTotalId);
     }
     addLevelIcon.appendChild(lp);
 
@@ -237,7 +242,9 @@ function munchkin() {
     addGearIcon = document.createElement("button");
     gp = document.createTextNode("+1");
     addGearIcon.className = "addGearIcon";
-    addGearIcon.setAttribute("id", "addGear");
+    addGearIcon.onclick = () => {
+        increaseValue(gearTotalId, strengthTotalId);
+     }
     addGearIcon.appendChild(gp);
 
     removeGearIcon = document.createElement("button");
@@ -279,6 +286,15 @@ function munchkin() {
     
 }
    
+}
+
+function increaseValue(id, strId) {
+   let value = document.getElementById(id).innerText++;
+    updateStrength(strId);
+}
+
+function updateStrength(strId) {
+   document.getElementById(strId).innerText++;
 }
 
 function randomID() {
