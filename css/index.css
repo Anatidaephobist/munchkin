@@ -21,20 +21,15 @@
      background-color: #bd9f82;
  }
 
- #test {
-     position: absolute;
-     display:none;
-     
- }
+
 
  .container h1 {
-
-    font-family: "Comic Sans MS", cursive, sans-serif;
+font-family: "Comic Sans MS", cursive, sans-serif;
 font-size: 12px;
 letter-spacing: -1.2px;
 word-spacing: 4px;
 color: #000000;
-font-weight: normal;
+font-weight: bold;
 text-decoration: none;
 font-style: normal;
 font-variant: normal;
@@ -65,6 +60,7 @@ text-transform: uppercase;
     border-radius:50px;
     margin-left:15px;
     border:none;
+    width:45px;
 
 }
 
@@ -89,23 +85,95 @@ font-size: 8px;
     z-index:2;
 }
 
-#createMunchkin {
-    position: inherit;
-    font-size: 6px;
-    top:88px;
-    left:32px;
-    outline:none;
-    text-transform: uppercase;
-    border:1px solid #574517;
-    border-radius:50px;
-    background-color:rgb(240, 217, 196);
-    max-height: 10px;
-    max-width:auto;
-    color:black;
+.playerGearTitle, .playerStrengthTitle  {
+    margin-top:-30px;
 }
 
 
 
+#createMunchkin {
+    position: inherit;
+    font-size: 4vw;
+    top: 73vw;
+    left: 24vw;
+    outline: none;
+    text-transform: uppercase;
+    border: 1px solid #574517;
+    border-radius: 50px;
+    background-color: rgb(240, 217, 196);
+    max-width: auto;
+    max-height: auto;
+    color: black;
+}
+.addLevelIcon {
+    position: relative;
+    border-radius:50px;
+    border: 1px solid black;
+    top:-35px;
+    left:60px;
+}
+
+.addGearIcon {
+    position: relative;
+    border-radius:50px;
+    border: 1px solid black;
+    top:-35px;
+    left:60px;
+
+}
+
+
+
+.removeGearIcon {
+    position: relative;
+    border-radius:50px;
+    border: 1px solid black;
+    top:-35px;
+    left:-60px;
+}
+
+.addStrengthIcon {
+    position: relative;
+    border-radius:50px;
+    border: 1px solid black;
+    top:-35px;
+    left:60px;
+
+}
+
+.removeStrengthIcon {
+    position: relative;
+    border-radius:50px;
+    border: 1px solid black;
+    top:-35px;
+    left:-60px;
+}
+
+
+
+.removeLevelIcon {
+    position: relative;
+    border-radius:50px;
+    border: 1px solid black;
+    top:-35px;
+    left:-60px;
+}
+
+.removeLevelIcon, .addLevelIcon, .addGearIcon, .removeGearIcon, .addStrengthIcon, .removeStrengthIcon {
+  background-color:inherit;
+  outline:none;
+}
+
+.removeLevelIcon:active, .addLevelIcon:active, .addGearIcon:active, .removeGearIcon:active, .addStrengthIcon, .removeStrengthIcon {
+    transform: scale(0.8);
+}
+
+
+.cardTitle img {
+    max-width: 12px;
+    min-width: 12px;
+    height: auto;
+}
 
 
 .createPlayerCard img {
@@ -114,16 +182,17 @@ font-size: 8px;
 }
 
 #maleIcon {
-    max-width: 15px;
-    max-height: 15px;
-    left:22.5px;
+    max-width: 10vw;
+    max-height: auto;
+    top: 55vw;
+    left: 15vw;
 }
 
 #femaleIcon {
-    max-width: 12.5x;
-    max-height: 12.5px;
-    top:72px;
-    left:67.5px;
+    max-width: 5vw;
+    max-height: auto;
+    top: 56vw;
+    left: 45vw;
 }
 
 .createPlayerCard p {
@@ -131,36 +200,35 @@ font-size: 8px;
 }
 
 #munchkinNameInput {
-border:1px solid #574517;
-background-color: #d9c4b0;
-outline:none;
-margin-top:6px;
-font-size: 8px;
-height:10px;
-text-align: center;
-border-radius: 25px;
-width: 60px;
-top:31.5px;
-left:20px;
-position: inherit;
+    border: 1px solid #574517;
+    background-color: #d9c4b0;
+    outline: none;
+    margin-top: 6px;
+    font-size: 4vw;
+    height: 5vw;
+    text-align: center;
+    border-radius: 25px;
+    width: 50vw;
+    top: 28vw;
+    left: 8vw;
+    position: inherit;
 }
-
 
 
 #genderTitle {
-    font-size: 8px;
+    font-size: 4vw;
     position: inherit;
-    left:10px;
-    top: 48px;
+    top: 38vw;
+    left: 21vw;
 }
 
 #nameTitle {
-    font-size: 8px;
-    margin-top:1px;
+    font-size: 4vw;
+    margin-top: 1px;
     position: inherit;
-    left:15px;
+    left: 20vw;
+    top: 16vw;
 }
-
 
 @keyframes rotation {
     from {
@@ -172,25 +240,24 @@ position: inherit;
   
   }
 
-  
-  
-
-.outerCircle {
-    border-right: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 4px groove hsl(44, 74%, 20%);
-    border-top: 4px groove  hsl(44, 74%, 20%);
-    background-color:#bd9f82;
-    position: absolute;
-    top:0;
-    left:inherit;
-    width: inherit;
-    height: inherit;
-    border-radius: 50%;
-    transform: rotate(45deg);
-
+  #test {
+      display:none;
   }
   
+
+  .outerCircle {
+    border-left: 1px solid hsl(44, 74%, 20%);
+    border-right: 1px solid hsl(44, 74%, 20%);
+    border-bottom: 12px groove hsl(44, 74%, 20%);
+    border-top: 12px groove hsl(44, 74%, 20%);
+    background-color: #bba086;
+    position: absolute;
+    left: -7vw;
+    width: 80vw;
+    height: 80vw;
+    border-radius: 50%;
+    transform: rotate(45deg);
+}
 
 
 
@@ -206,16 +273,19 @@ position: inherit;
 #numberOfPlayers {
 position: relative;
 top:-28px;
-left:40px;
+left:12px;
 }
 
 
 
  .container {
-     width:50vw;
+     text-align: center;
+     width:89vw;
      height:90%;
      padding-top:2px;
+     padding-left: 25px;
      float:left;
+     margin-left:-5px;
      background-color: #d9c4B0;
  }
 
@@ -259,7 +329,7 @@ left:40px;
      min-width: 110px;
      width:40%;
      max-width: 200px;
-     height:200px;
+     height:auto;
      float:left;
      text-align: center;
     
@@ -274,7 +344,7 @@ left:40px;
 
  .cardTitle {
      border-bottom: 1px solid black;
-  
+    
  }
 
  .playerBody {
