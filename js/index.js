@@ -38,6 +38,7 @@
  var playerGear;
  var addGearIcon;
  var plusIcon;
+ var gameOver = false;
  var munchkinName;
  var minusIcon;
  var maleIconIsActive = false;
@@ -223,7 +224,10 @@ function munchkin() {
     lp = document.createTextNode("+1");
     addLevelIcon.className = "addLevelIcon";
     addLevelIcon.onclick = () => {
-        increaseValue(levelTotalId, strengthTotalId);
+        if(!gameOver) {
+            increaseLevelValue(levelTotalId, strengthTotalId);
+        }
+        
     }
     addLevelIcon.appendChild(lp);
 
@@ -231,8 +235,10 @@ function munchkin() {
     lm = document.createTextNode("-1");
     removeLevelIcon.className = "removeLevelIcon";
     removeLevelIcon.onclick = () => {
-        decreaseValue(levelTotalId, strengthTotalId);
+        if(!gameOver) {
+        decreaseLevelValue(levelTotalId, strengthTotalId);
     }
+}
     removeLevelIcon.appendChild(lm);
 
     
@@ -244,14 +250,20 @@ function munchkin() {
     gp = document.createTextNode("+1");
     addGearIcon.className = "addGearIcon";
     addGearIcon.onclick = () => {
-        increaseValue(gearTotalId, strengthTotalId);
+        if(!gameOver) {
+        increaseGearValue(gearTotalId, strengthTotalId);
      }
+    }
     addGearIcon.appendChild(gp);
 
     removeGearIcon = document.createElement("button");
     gm = document.createTextNode("-1");
     removeGearIcon.className = "removeGearIcon";
-    removeGearIcon.setAttribute("id", "removeGear");
+    removeGearIcon.onclick = () => {
+        if(!gameOver) {
+        decreaseGearValue(gearTotalId, strengthTotalId);
+     }
+    }
     removeGearIcon.appendChild(gm);
 
     playerGearTitle.appendChild(addGearIcon);
@@ -289,20 +301,28 @@ function munchkin() {
    
 }
 
-function increaseValue(id, strId) {
+function increaseLevelValue(id, strId) {
    let element = document.getElementById(id);
-   let value = element.innerText++;
-   console.log(value);
-   if(value < 1) {
+   if(element.innerText < 10) {
+    element.innerText++;
+   } else {
+       return;
+   }
+  
+   if(element.innerText< 0) {
     return;
    } else {
     increaseStrength(strId);
    }
+   if(element.innerText == 9) {
+    winnerDinnerChickenDinner();
+    return;
+}
    
     
 }
 
-function decreaseValue(id, strId) {
+function decreaseLevelValue(id, strId) {
     let element = document.getElementById(id);
     element.innerText--;
     if(element.innerText >= 1) {
@@ -313,6 +333,37 @@ function decreaseValue(id, strId) {
     }
     
 }
+
+function winnerDinnerChickenDinner() {
+   /* gameOver = true;
+    let element = document.getElementById("addPlayer");
+    element.setAttribute("disabled", "true");
+    console.log("WIN");
+    */
+}
+
+function increaseGearValue(id, strId) {
+    let element = document.getElementById(id);
+    let value = element.innerText++;
+    if(value < 0) {
+     return;
+    } else {
+     increaseStrength(strId);
+    }
+}
+
+function decreaseGearValue(id, strId) {
+    let element = document.getElementById(id);
+    element.innerText--;
+    if(element.innerText >= 0) {
+    decreaseStrength(strId);
+    } else {
+        element.innerText = 0;
+        return;
+    }
+}
+
+
 
 function increaseStrength(strId) {
    document.getElementById(strId).innerText++;
