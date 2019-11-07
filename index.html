@@ -58,9 +58,9 @@
         <div class="container border">
             <div class="header">
                     <img src="./img/options.png" id="optionsPng">
-                    <button id="test"></button>
+                    <button id="test" ></button>
                     <div>
-                        <button class="addIcon" id="addPlayer"> <img src="./img/addIcon.png" id="addIconPng"> <p>add munchkins</p></button>
+                        <button class="addIcon cardButton" id="addPlayer"> <img src="./img/addIcon.png" id="addIconPng"> <p>add munchkins</p></button>
                         <div id="numberOfPlayers"></div>
                     </div>
             </div>
@@ -70,8 +70,15 @@
             <div class="playerwrapper" id="playerWrapper">
             </div>  
         </div>
+    </div>
+    <div style="position: absolute; left: 50%;" id="confirmBox">
+        <div class="confirmationBox">
+        <h2>Are You Sure You Want To Delete This Munchkin?</h2>
+        <button class="yesButton" id="yesBtn">Yes</button>
+        <button class="noButton" id="noBtn">No</button>
+        </div>
+      </div>
 
-   
     </div>
 
         <script type="text/javascript" src="cordova.js"></script>

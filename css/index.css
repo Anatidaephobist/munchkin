@@ -297,6 +297,48 @@ font-size: 8px;
    
 }
 
+.yesButton:active, .noButton:active {
+    transform: scale(1.1);
+    transition-duration: 0.1s;
+}
+
+.yesButton, .noButton {
+    border: 2px solid black;
+    position: relative;
+    border-radius: 20%;
+    font-weight: 600;
+    outline: none;
+}
+
+.yesButton {
+    left: -53px;
+    background-color: forestgreen;
+}
+.noButton {
+    right: -53px;
+    background-color: darkred;
+}
+
+#confirmBox {
+    display:none;
+}
+
+
+
+.confirmationBox {
+    position: relative;
+    left: -50%;
+    border: 2px solid black;
+    margin-top: 20vw;
+    font-size: 9px;
+    padding:10px;
+    width: 307px;
+    text-align: center;
+    border-radius: 25px;
+    background-color: mintcream;
+    
+}
+
 #numberOfPlayers {
     position: relative;
     top: -35px;

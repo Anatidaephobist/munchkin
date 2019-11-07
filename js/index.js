@@ -65,10 +65,11 @@
 
 
 function createPlayer() {
-  blur = document.getElementById("blur");
+ 
   addButton = document.getElementById("addPlayer");
   createPlayerCard = document.getElementById("createPlayerCard");
- 
+  
+  blur = document.getElementById("blur");
   blur.style = "filter: blur(3px);";
   createPlayerCard.style = "display:block;";
   rings = document.getElementById('outerCircle');
@@ -121,10 +122,10 @@ function munchkin() {
     document.getElementById("femaleIcon").style = "filter: invert(0%)";
     playerWrapper = document.getElementById("playerWrapper");
     createPlayerCard = document.getElementById("createPlayerCard");
-    blur = document.getElementById("blur");
+    
     addButton = document.getElementById("addPlayer");
 
-
+    blur = document.getElementById("blur");
     blur.style = "filter: blur(0px);";
     createPlayerCard.style = "display:none;";
     rings.style = "animation: ;";
@@ -161,9 +162,10 @@ function munchkin() {
     var deleteButton = document.createElement("button");
     deleteButton.innerHTML = "x";
     deleteButton.onclick = () => {
-        deleteCard(playerCardId);
+        areYouSure(playerCardId);
     }
     deleteButton.className = "deleteButton";
+    deleteButton.classList += " cardButton";
     nameOfPlayer.appendChild(deleteButton);
     
     playerBody = document.createElement("div");
@@ -232,6 +234,7 @@ function munchkin() {
     var addLevelIcon = document.createElement("button");
     lp = document.createTextNode("+1");
     addLevelIcon.className = "addLevelIcon";
+    addLevelIcon.classList += " cardButton";
     addLevelIcon.onclick = () => {
         if(!gameOver) {
             increaseLevelValue(levelTotalId, strengthTotalId);
@@ -243,6 +246,7 @@ function munchkin() {
     removeLevelIcon = document.createElement("button");
     lm = document.createTextNode("-1");
     removeLevelIcon.className = "removeLevelIcon";
+    removeLevelIcon.classList += " cardButton";
     removeLevelIcon.onclick = () => {
         if(!gameOver) {
         decreaseLevelValue(levelTotalId, strengthTotalId);
@@ -258,6 +262,7 @@ function munchkin() {
     addGearIcon = document.createElement("button");
     gp = document.createTextNode("+1");
     addGearIcon.className = "addGearIcon";
+    addGearIcon.classList += " cardButton";
     addGearIcon.onclick = () => {
         if(!gameOver) {
         increaseGearValue(gearTotalId, strengthTotalId);
@@ -268,6 +273,7 @@ function munchkin() {
     removeGearIcon = document.createElement("button");
     gm = document.createTextNode("-1");
     removeGearIcon.className = "removeGearIcon";
+    removeGearIcon.classList += " cardButton";
     removeGearIcon.onclick = () => {
         if(!gameOver) {
         decreaseGearValue(gearTotalId, strengthTotalId);
@@ -331,15 +337,57 @@ function increaseLevelValue(id, strId) {
 
 function deleteCard(id) {
     let element = document.getElementById(id);
+    document.getElementById("confirmBox").style.display = "none";
+    let buttons = document.getElementsByClassName("cardButton");
+    let blur = document.getElementById("blur");
+    blur.style = "";
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false; 
+    }
+    
     element.remove();
-
-  numberOfPlayers--;
+    numberOfPlayers--;
     playerCount = document.getElementById("numberOfPlayers");
     playerCount.innerHTML = numberOfPlayers;
     if(playerCount.innerHTML == 0) {
-        playerCount.innerHTML = "";
-    }
+    playerCount.innerHTML = "";
+}
 
+
+}
+
+function areYouSure(element) {
+let buttons = document.getElementsByClassName("cardButton");
+let yesBtn = document.getElementById("yesBtn");
+let noBtn = document.getElementById("noBtn");
+let blur = document.getElementById("blur");
+
+document.getElementById("confirmBox").style.display = "block";
+blur.style = "filter: blur(3px);";
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = true; 
+}
+
+yesBtn.onclick = () => {
+    deleteCard(element);
+}
+noBtn.onclick = () => {
+    hideConfirmation();
+}
+
+}
+
+
+
+function hideConfirmation() {
+    let element = document.getElementById(id);
+    document.getElementById("confirmBox").style.display = "none";
+    let buttons = document.getElementsByClassName("cardButton");
+    let blur = document.getElementById("blur");
+    blur.style = "";
+    for (let i = 0; i < buttons.length; i++) {
+        buttons[i].disabled = false; 
+    }
 }
 
 function decreaseLevelValue(id, strId) {
