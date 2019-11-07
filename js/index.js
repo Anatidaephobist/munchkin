@@ -66,8 +66,6 @@
 
 function createPlayer() {
 
-    
- 
   addButton = document.getElementById("addPlayer");
   createPlayerCard = document.getElementById("createPlayerCard");
   let buttons = document.getElementsByClassName("cardButton");
@@ -170,9 +168,18 @@ function munchkin() {
     var g = document.createElement("IMG");
     if(maleIconIsActive) {
         g.setAttribute("id","male");
+        g.classList += "cardButton";
+        console.log(g);
+        g.onclick = (event) => {
+            changeGender(event.target.id, g);
+        }
     g.src = "./img/maleIcon.png";
     } else if(femaleIconIsActive) {
         g.setAttribute("id","female");
+        g.classList += "cardButton";
+        g.onclick = (event) => {
+            changeGender(event.target.id, g)
+        }
         g.src = "./img/femaleIcon.png";
     }
 
@@ -322,6 +329,24 @@ function munchkin() {
     
 }
    
+}
+
+function changeGender(gender, element) {
+  if(gender == "male") {
+    let sex = "female";
+    element.setAttribute("id","female");
+    element.src = "./img/femaleIcon.png";
+    element.onclick = (event) => {
+    changeGender(sex, element);
+}
+  } else if(gender = "female") {
+    let sex = "male";
+    element.setAttribute("id","male");
+    element.src = "./img/maleIcon.png";
+    element.onclick = (event) => {
+        changeGender(sex, element);
+    }
+  }
 }
 
 function hideCreatePlayer() {
